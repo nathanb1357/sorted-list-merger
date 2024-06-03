@@ -1,6 +1,6 @@
 # Merge Sorted Files
 
-This script merges two sorted text files by asking the user for preference when entries are equal and writes the merged list to a new file in the Downloads directory.
+This script merges two sorted text files by asking the user for their preferred entries and writes the merged list to a new file in the Downloads directory.
 
 ## Requirements
 
