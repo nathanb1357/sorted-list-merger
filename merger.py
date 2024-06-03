@@ -5,6 +5,11 @@ from argparse import ArgumentParser
 
 
 def read_file(file_path: str) -> list:
+    """
+    Reads lines from a text file and saves them into a list.
+    :param file_path: The file to be read.
+    :return: List of lines from the file.
+    """
     try:
         if not file_path.endswith('.txt'):
             raise ValueError(f'ERROR: {file_path} is not a text file!')
@@ -19,6 +24,12 @@ def read_file(file_path: str) -> list:
 
 
 def merge_lists(list1: list, list2: list) -> list:
+    """
+    Merges two sorted lists by asking the user for their preference.
+    :param list1: First sorted list.
+    :param list2: Second sorted list.
+    :return: Merged list based on user preferences.
+    """
     merged_list = []
     i, j = 0, 0
     len1, len2 = len(list1), len(list2)
@@ -44,6 +55,11 @@ def merge_lists(list1: list, list2: list) -> list:
 
 
 def get_output_file(file_name: str) -> str:
+    """
+    Generates a unique filename in the Downloads directory by appending a number if needed.
+    :param file_name: Desired file name.
+    :return: Unique file path.
+    """
     directory = str(Path.home() / "Downloads")
     file_path = os.path.join(directory, file_name)
     if not os.path.exists(file_path):
@@ -60,6 +76,11 @@ def get_output_file(file_name: str) -> str:
 
 
 def output_file(output: list, file_name: str):
+    """
+    Writes the merged list to a file, ensuring the name is unique.
+    :param output: Merged list to write.
+    :param file_name: Desired output filename.
+    """
     file_path = get_output_file(file_name)
     try:
         with open(file_path, 'w', encoding='utf-8') as file:
@@ -72,6 +93,9 @@ def output_file(output: list, file_name: str):
 
 
 def main():
+    """
+    Main function to handle argument parsing and file merging.
+    """
     parser = ArgumentParser()
     parser.add_argument('a', help='The first file')
     parser.add_argument('b', help='The second file')
